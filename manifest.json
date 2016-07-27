@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "name": "Markup Web",
+    "description": "Live Screen Editor",
+    "version": "1.0",
+    "browser_action": {
+        "default_icon": ""
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ]
+}
