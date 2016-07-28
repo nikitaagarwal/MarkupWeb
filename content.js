@@ -1,23 +1,36 @@
-//temp from zipso
-// Get the specific canvas element from the HTML document
-var canvas = document.getElementById('sketchpad');
+//paper.js
 
-// If the browser supports the canvas tag, get the 2d drawing context for this canvas
-if (canvas.getContext)
-    var ctx = canvas.getContext('2d');
 
-// Draws a dot at a specific position on the supplied canvas name
-// Parameters are: A canvas context, the x position, the y position
-function drawDot(ctx,x,y) {
-// Let's use black by setting RGB values to 0, and 255 alpha (completely opaque)
-r=0; g=0; b=0; a=255;
+tool.minDistance = 10;
+tool.maxDistance = 45;
 
-// Select a fill style
-ctx.fillStyle = "rgba("+r+","+g+","+b+","+(a/255)+")";
-// Draw a filled circle
-ctx.beginPath();
-ctx.arc(x, y, size, 0, Math.PI*2, true);
-ctx.closePath();
-ctx.fill();
-    
+var path;
+
+function onMouseDown(event) {
+	path = new Path();
+	path.fillColor = {
+		hue: Math.random() * 360,
+		saturation: 1,
+		brightness: 1
+	};
+
+	path.add(event.point);
+}
+
+function onMouseDrag(event) {
+	var step = event.delta / 2;
+	step.angle += 90;
+	
+	var top = event.middlePoint + step;
+	var bottom = event.middlePoint - step;
+	
+	path.add(top);
+	path.insert(0, bottom);
+	path.smooth();
+}
+
+function onMouseUp(event) {
+	path.add(event.point);
+	path.closed = true;
+	path.smooth();
 }
