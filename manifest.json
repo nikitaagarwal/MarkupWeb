@@ -6,6 +6,9 @@
     "browser_action": {
         "default_icon": "tempIcon.png"
     },
+    "permissions": [
+        "activeTab",
+        "https://ajax.googleapis.com/"]
     "content_scripts": [
         {
             "matches": [
