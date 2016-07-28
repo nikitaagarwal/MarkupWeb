@@ -4,7 +4,7 @@
     "description": "Live Screen Editor",
     "version": "1.0",
     "browser_action": {
-        "default_icon": ""
+        "default_icon": "tempIcon.png"
     },
     "content_scripts": [
         {
