@@ -11,15 +11,10 @@
         "https://ajax.googleapis.com/"],
     "content_scripts": [
         {
-            "matches": [
-                "http://*/*",
-                "https://*/*"
-            ],
             "js": [
                 "paper-full.js"
                 "content.js"
-            ],
-            "run_at": "document_start"
+            ]
         }
     ]
 }
