@@ -16,6 +16,7 @@
                 "https://*/*"
             ],
             "js": [
+                "paper-full.js"
                 "content.js"
             ],
             "run_at": "document_start"
